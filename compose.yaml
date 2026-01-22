@@ -13,6 +13,8 @@ x-depends-on-configurator: &depends_on_configurator
 
 x-backend-defaults: &backend_defaults
   <<: [*depends_on_configurator, *customizable_image]
+  environment:
+    PYTHONPATH: /home/frappe/frappe-bench/apps
   volumes:
     - sites:/home/frappe/frappe-bench/sites
 
@@ -60,6 +62,7 @@ services:
       UPSTREAM_REAL_IP_RECURSIVE: ${UPSTREAM_REAL_IP_RECURSIVE:-off}
       PROXY_READ_TIMEOUT: ${PROXY_READ_TIMEOUT:-120}
       CLIENT_MAX_BODY_SIZE: ${CLIENT_MAX_BODY_SIZE:-50m}
+      PYTHONPATH: /home/frappe/frappe-bench/apps
     volumes:
       - sites:/home/frappe/frappe-bench/sites
     depends_on:
