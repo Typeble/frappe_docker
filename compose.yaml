@@ -17,7 +17,7 @@ x-backend-defaults: &backend_defaults
     PYTHONPATH: /home/frappe/frappe-bench/apps
   volumes:
     - sites:/home/frappe/frappe-bench/sites
-    - ${CUSTOM_APPS_PATH:-/opt/frappe/domcurioso/app}:/home/frappe/frappe-bench/apps/frappe_app_domcurioso
+    - ${CUSTOM_APPS_PATH:-/opt/frappe/domcurioso/app/frappe_app_domcurioso}:/home/frappe/frappe-bench/apps/frappe_app_domcurioso
 
 services:
   configurator:
@@ -66,7 +66,7 @@ services:
       PYTHONPATH: /home/frappe/frappe-bench/apps
     volumes:
       - sites:/home/frappe/frappe-bench/sites
-      - ${CUSTOM_APPS_PATH:-/opt/frappe/domcurioso/app}:/home/frappe/frappe-bench/apps/frappe_app_domcurioso
+      - ${CUSTOM_APPS_PATH:-/opt/frappe/domcurioso/app/frappe_app_domcurioso}:/home/frappe/frappe-bench/apps/frappe_app_domcurioso
     depends_on:
       - backend
       - websocket
